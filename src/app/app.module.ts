@@ -7,6 +7,7 @@ import {HelloComponent} from "./hello/hello.component";
 import { NavbarComponent } from './shared/component/navbar/navbar.component';
 import { SideComponent } from './shared/component/side/side.component';
 import { FooterComponent } from './shared/component/footer/footer.component';
+import { NotFoundComponent } from './shared/component/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { FooterComponent } from './shared/component/footer/footer.component';
     HelloComponent,
     NavbarComponent,
     SideComponent,
-    FooterComponent
+    FooterComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

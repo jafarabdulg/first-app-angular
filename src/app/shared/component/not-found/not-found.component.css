@@ -1,0 +1,6 @@
+.warn-card {
+  height: 300px;
+  width: 25%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  border-radius: 5px;
+}
