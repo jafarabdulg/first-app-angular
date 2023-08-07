@@ -1,0 +1,11 @@
+div {
+  background-color: rgba(0,0,0,.5);
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  color: white;
+}
