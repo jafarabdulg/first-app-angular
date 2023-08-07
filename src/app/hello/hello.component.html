@@ -1,6 +1,14 @@
 <div>
-  <img src="./assets/profile.jpg">
+  <img src="./assets/profile.jpg" alt="profile-picture">
   <h1>Hello Pascal 12!</h1>
-  <p>My name is Jafar Abdul Ghoffar</p>
+  <p>My name {{name}}</p>
   <p>Nice to meet you!</p>
+  <p>{{getMessage()}}</p>
+  <p>{{people}}</p>
+  <p>{{getPeople()}}</p>
+  <p *ngFor="let person of people">{{person}}</p>
+  <p>{{employees[0].name}}, {{employees[0].address}}</p>
+  <ul>
+    <li *ngFor="let employee of employees">{{employee.name}}, {{employee.address}}</li>
+  </ul>
 </div>
