@@ -16,7 +16,7 @@ import { NotFoundComponent } from './shared/component/not-found/not-found.compon
     NavbarComponent,
     SideComponent,
     FooterComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
