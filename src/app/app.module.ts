@@ -8,6 +8,9 @@ import { NavbarComponent } from './shared/component/navbar/navbar.component';
 import { SideComponent } from './shared/component/side/side.component';
 import { FooterComponent } from './shared/component/footer/footer.component';
 import { NotFoundComponent } from './shared/component/not-found/not-found.component';
+import { LoginComponent } from './auth/login/login.component';
+import {FormsModule} from "@angular/forms";
+import { DashboardComponent } from './page/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -17,10 +20,13 @@ import { NotFoundComponent } from './shared/component/not-found/not-found.compon
     SideComponent,
     FooterComponent,
     NotFoundComponent,
+    LoginComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
