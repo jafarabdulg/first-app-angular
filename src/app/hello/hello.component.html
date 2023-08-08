@@ -1,6 +1,9 @@
-<div>
-  <h1>Hello Pascal 12!</h1>
-  <p><strong>Date:</strong> August 7, 2023</p>
+<div class="container mt-3" style="text-align: justify; padding-right: 150px">
+  <h1 [style]="styles">Hello Pascal 12!</h1>
+  <div class="container d-flex justify-content-center">
+    <img [src]="imgSrc" [alt]="imgAlt" style="width: 540px;">
+  </div>
+  <p [innerHTML]="date"></p>
 
   <p>Morning:<br>I woke up with a mix of anticipation and enthusiasm. After a hearty breakfast, I sat down at my desk, ready to
     start my learning adventure. I first set up my development environment, ensuring I had Node.js and npm (Node
@@ -32,5 +35,15 @@
     like a powerful tool, and I can't wait to harness its full potential in building real-world applications.</p>
 
   <p>Signing off for today,</p>
-  <p>{{name}}</p>
+  <p><i>{{name}}</i></p>
+
+  <button class="btn btn-dark mb-3" [disabled]="isDisabled">Selanjutnya</button>
+  <span [innerHTML]="info" style="margin-left: 10px"></span>
+
+  <span><br>Jumlah like: {{likeCounter}}</span>
+  <button (click)="increment()" class="btn btn-primary mb-3 d-block">Like</button>
+
+  <p [style.color]="counterColor">{{counter}}</p>
+  <button (click)="startCounter()" class="btn btn-success mb-3">Start Count</button>
+  <button (click)="stopCounter()  " class="btn btn-danger mb-3" style="margin-left: 5px">Stop Count</button>
 </div>

@@ -1,6 +1,6 @@
 .login-page {
     height: 100vh;
-    background-image: url('/assets/wall.jpg');
+    background-image: url('src/assets/images/wall.jpg');
     background-size: cover;
     display: flex;
     justify-content: center;

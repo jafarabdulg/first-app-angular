@@ -35,4 +35,48 @@ export class HelloComponent{
       address: 'Bekasi'
     }
   ];
+
+  imgSrc: string = 'assets/images/welcome.png';
+  imgAlt: string = 'welcome-picture';
+
+  date: string = '<i>August 7, 2023</i>';
+
+  styles = {
+    fontSize: '26px',
+    color: 'cadetblue'
+  }
+
+  isDisabled: boolean = false;
+
+  info: string = '';
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.isDisabled = !this.isDisabled;
+      this.info = 'Sudah 2 detik, tombol tidak bisa diklik!';
+    }, 2000);
+  }
+
+  likeCounter: number = 0;
+  increment() {
+    this.likeCounter++;
+  }
+
+  counter: number = 0;
+  counterColor = 'blue';
+  intervalId : any;
+  startCounter() {
+      this.intervalId = setInterval(() => {
+        this.counter++;
+        if (this.counter >= 5) {
+          this.counterColor = 'red';
+        }
+      }, 1000);
+  }
+
+  stopCounter() {
+    clearInterval(this.intervalId);
+    this.counter = 0;
+    this.counterColor = 'blue';
+  }
 }
