@@ -1,0 +1,22 @@
+<div class="todo-list">
+  <h3>Todo List</h3>
+  <table class="table w-100">
+    <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Todo</th>
+      <th scope="col">Description</th>
+      <th scope="col" class="text-center" style="width: 32%">Action</th>
+    </tr>
+    </thead>
+    <tr *ngFor="let todo of todos; let i = index">
+      <td>{{i+1}}</td>
+      <td [class.text-decoration-line-through]="todo.isDone">{{todo.name}}</td>
+      <td [class.text-decoration-line-through]="todo.isDone">{{todo.description}}</td>
+      <td class="d-flex justify-content-center gap-1">
+        <button class="btn btn-sm {{ todo.isDone ? 'btn-warning' : 'btn-success' }}" (click)="done(i)">{{todo.isDone ? 'Undone':'Done'}}</button>
+        <button class="btn btn-danger btn-sm" (click)="delete(i)">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>

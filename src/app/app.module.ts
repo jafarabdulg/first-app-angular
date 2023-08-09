@@ -11,6 +11,8 @@ import { NotFoundComponent } from './shared/component/not-found/not-found.compon
 import { LoginComponent } from './auth/login/login.component';
 import {FormsModule} from "@angular/forms";
 import { DashboardComponent } from './page/dashboard/dashboard.component';
+import { ChildComponent } from './child/child.component';
+import { TodosComponent } from './todos/todos.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { DashboardComponent } from './page/dashboard/dashboard.component';
     NotFoundComponent,
     LoginComponent,
     DashboardComponent,
+    ChildComponent,
+    TodosComponent,
   ],
   imports: [
     BrowserModule,
