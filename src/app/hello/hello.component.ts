@@ -92,8 +92,8 @@ export class HelloComponent{
 
   inputName: string = '';
   onKeyPress(event: any): void {
-    console.log(event);
-    console.log(event.target.value);
+    // console.log(event);
+    // console.log(event.target.value);
     this.inputName = event.target.value;
   }
 }
