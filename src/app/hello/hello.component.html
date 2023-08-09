@@ -46,4 +46,11 @@
   <p [style.color]="counterColor">{{counter}}</p>
   <button (click)="startCounter()" class="btn btn-success mb-3">Start Count</button>
   <button (click)="stopCounter()  " class="btn btn-danger mb-3" style="margin-left: 5px">Stop Count</button>
+
+  <div class="card w-25 mb-3">
+    <span (mouseover)="mOver()" (mouseout)="mOut()" [innerHTML]="cardMessage"></span>
+  </div>
+
+  <input type="text" class="form-control mb-3 w-50" id="name" (input)="onKeyPress($event)" placeholder="input some text...">
+  <p class="mb-3">Your name will appear here: {{inputName}}</p>
 </div>

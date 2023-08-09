@@ -79,4 +79,21 @@ export class HelloComponent{
     this.counter = 0;
     this.counterColor = 'blue';
   }
+
+  cardMessage: string = 'please hove me';
+
+  mOver() {
+    this.cardMessage = 'thank you for hover me';
+  }
+
+  mOut() {
+    this.cardMessage = 'hove me again';
+  }
+
+  inputName: string = '';
+  onKeyPress(event: any): void {
+    console.log(event);
+    console.log(event.target.value);
+    this.inputName = event.target.value;
+  }
 }
