@@ -14,8 +14,8 @@
       <td [class.text-decoration-line-through]="todo.isDone">{{todo.name}}</td>
       <td [class.text-decoration-line-through]="todo.isDone">{{todo.description}}</td>
       <td class="d-flex justify-content-center gap-1">
-        <button class="btn btn-sm {{ todo.isDone ? 'btn-warning' : 'btn-success' }}" (click)="done(i)">{{todo.isDone ? 'Undone':'Done'}}</button>
-        <button class="btn btn-danger btn-sm" (click)="delete(i)">Delete</button>
+        <button class="btn {{ todo.isDone ? 'btn-warning' : 'btn-success' }}" (click)="done(i)">{{todo.isDone ? 'Undone':'Done'}}</button>
+        <button class="btn btn-danger" (click)="delete(i)">Delete</button>
       </td>
     </tr>
   </table>
