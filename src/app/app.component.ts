@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'first-app';
+
+  clickCount: number = 0;
+
+  onCountChanged(count: number) {
+    console.log('Ini Event:', count);
+    this.clickCount = count;
+  }
+
+  deletedTodoIndex: number = -1;
+  receive(index: number) {
+    this.deletedTodoIndex = index;
+  }
 
   todosParent: any[] = [];
 

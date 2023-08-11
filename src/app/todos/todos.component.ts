@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-todos',
@@ -7,11 +7,13 @@ import {Component, Input} from '@angular/core';
 })
 export class TodosComponent {
   @Input() todos: any[] = [];
+  @Output() sendIndex = new EventEmitter<number>();
 
   delete(index: number): void{
     const confirmed: boolean = window.confirm("are you sure?");
     if (confirmed) {
       this.todos.splice(index, 1);
+      this.sendIndex.emit(index);
     }
   }
 

@@ -1,6 +1,7 @@
 <p>Parent: {{title}}</p>
-
-<app-child [childTitle]="title"></app-child>
+<p>clickCount Parent: {{clickCount}}</p>
+<app-child [childTitle]="title" (onChanged)="onCountChanged($event)"></app-child>
+<p class="mt-3">Index Todo yang baru dihapus: {{deletedTodoIndex}}</p>
 
 <div class="container d-flex justify-content-around">
   <form class="w-25">
@@ -9,5 +10,5 @@
     <input type="text" class="form-control mb-2" id="description" (input)="onKeyPress($event)" placeholder="Describe more here...">
     <button type="button" (click)="submit()" class="btn btn-primary mb-3 w-100">Add</button>
   </form>
-  <app-todos class="w-50" [todos]="todosParent"></app-todos>
+  <app-todos class="w-50" [todos]="todosParent" (sendIndex)="receive($event)"></app-todos>
 </div>

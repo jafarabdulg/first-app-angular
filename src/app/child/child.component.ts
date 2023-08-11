@@ -1,4 +1,5 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {count} from "rxjs";
 
 @Component({
   selector: 'app-child',
@@ -7,4 +8,13 @@ import {Component, Input} from '@angular/core';
 })
 export class ChildComponent {
   @Input() childTitle: string = '';
+
+  @Output() onChanged = new EventEmitter<number>();
+
+  clickCount: number = 0;
+
+  countChange() {
+    this.clickCount++;
+    this.onChanged.emit(this.clickCount);
+  }
 }
