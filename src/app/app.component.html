@@ -1,19 +1,2 @@
-<h2>Parent: {{title}}</h2>
-
-<p>{{myName}}</p>
-<input [(ngModel)]="myName" placeholder="input sebuah nama">
-
-<app-child [childTitle]="title" [(myName)]="myName"></app-child>
-<!--<p class="mt-3">Index Todo yang baru dihapus: {{deletedTodoIndex}}</p>-->
-
-<!--<div class="container d-flex justify-content-around">-->
-<!--  <form class="w-25">-->
-<!--    <h3>Todo App</h3>-->
-<!--    <input type="text" class="form-control mb-2" id="todo" (input)="onKeyPress($event)" placeholder="What do you want to do?">-->
-<!--    <input type="text" class="form-control mb-2" id="description" (input)="onKeyPress($event)" placeholder="Describe more here...">-->
-<!--    <button type="button" (click)="submit()" class="btn btn-primary mb-3 w-100">Add</button>-->
-<!--  </form>-->
-<!--  <app-todos class="w-50" [todos]="todosParent" (sendIndex)="receive($event)"></app-todos>-->
-<!--</div>-->
-
-
+<app-login *ngIf="isComponentShow"></app-login>
+<button (click)="setComponentShow()">Button</button>

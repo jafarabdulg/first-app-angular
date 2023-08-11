@@ -8,7 +8,51 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    console.log('Constructor working');
+  }
+
+  ngOnInit(){
+    console.log('ngOnInit');
+    this.tick();
+  }
+
+  ngOnChanges(){
+    console.log('ngOnChanges');
+  }
+
+  ngDoCheck(){
+    console.log('ngDoCheck');
+  }
+
+  ngAfterContentInit(){
+    console.log('ngAfterContentInit');
+  }
+
+  ngAfterContentChecked(){
+    console.log('ngAfterContentChecked');
+  }
+
+  ngAfterViewInit(){
+    console.log('ngAfterViewInit');
+  }
+
+  ngAfterViewChecked(){
+    console.log('ngAfterViewChecked');
+  }
+
+  ngOnDestroy(){
+    console.log('ngOnDestroy');
+    clearInterval(this.intervalId);
+  }
+
+  id = 0;
+  intervalId: any;
+  tick(){
+    this.intervalId = setInterval(() => {
+      this.id++;
+    }, 1000);
+  }
 
   emailInput: string = '';
   passwordInput: string = '';
