@@ -42,4 +42,6 @@ export class AppComponent {
     }
     this.todosParent.push(todo);
   }
+
+  myName: string = 'Jafar Abdul Ghoffar';
 }

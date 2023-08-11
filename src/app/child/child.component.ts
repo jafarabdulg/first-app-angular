@@ -8,13 +8,19 @@ import {count} from "rxjs";
 })
 export class ChildComponent {
   @Input() childTitle: string = '';
+  // @Output() onChanged = new EventEmitter<number>();
 
-  @Output() onChanged = new EventEmitter<number>();
-
-  clickCount: number = 0;
-
-  countChange() {
-    this.clickCount++;
-    this.onChanged.emit(this.clickCount);
+  @Input()
+  myName: string = '';
+  @Output()
+  myNameChange = new EventEmitter<string>();
+  myNameChanges() {
+    this.myNameChange.emit(this.myName);
   }
+
+  // clickCount: number = 0;
+  // countChange() {
+  //   this.clickCount++;
+  //   this.onChanged.emit(this.clickCount);
+  // }
 }
