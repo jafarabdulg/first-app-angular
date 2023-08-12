@@ -3,34 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HelloComponent} from "./hello/hello.component";
-import { NavbarComponent } from './shared/component/navbar/navbar.component';
-import { SideComponent } from './shared/component/side/side.component';
-import { FooterComponent } from './shared/component/footer/footer.component';
-import { NotFoundComponent } from './shared/component/not-found/not-found.component';
-import { LoginComponent } from './auth/login/login.component';
-import {FormsModule} from "@angular/forms";
-import { DashboardComponent } from './page/dashboard/dashboard.component';
-import { ChildComponent } from './child/child.component';
-import { TodosComponent } from './todos/todos.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { AnimeFormComponent } from './anime/anime-form/anime-form.component';
+import { AnimeListComponent } from './anime/anime-list/anime-list.component';
+import { ForbiddenNameDirective } from './shared/utils/forbidden-name.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HelloComponent,
-    NavbarComponent,
-    SideComponent,
-    FooterComponent,
-    NotFoundComponent,
-    LoginComponent,
-    DashboardComponent,
-    ChildComponent,
-    TodosComponent,
+    AnimeFormComponent,
+    AnimeListComponent,
+    ForbiddenNameDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

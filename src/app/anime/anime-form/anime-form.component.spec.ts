@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavbarComponent } from './navbar.component';
+import { AnimeFormComponent } from './anime-form.component';
 
-describe('NavbarComponent', () => {
-  let component: NavbarComponent;
-  let fixture: ComponentFixture<NavbarComponent>;
+describe('AnimeFormComponent', () => {
+  let component: AnimeFormComponent;
+  let fixture: ComponentFixture<AnimeFormComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [NavbarComponent]
+      declarations: [AnimeFormComponent]
     });
-    fixture = TestBed.createComponent(NavbarComponent);
+    fixture = TestBed.createComponent(AnimeFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
