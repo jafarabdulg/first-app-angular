@@ -6,12 +6,15 @@ import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ExponentPipes} from "./shared/pipes/exponent.pipes";
 import { AgePipe } from './shared/pipes/age.pipe';
+import {TodoService} from "./service/todo.service";
+import { TodoListComponent } from './component/todo-list/todo-list.component';
 
 @NgModule({
   declarations: [
       AppComponent,
       ExponentPipes,
-      AgePipe
+      AgePipe,
+      TodoListComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +22,7 @@ import { AgePipe } from './shared/pipes/age.pipe';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
