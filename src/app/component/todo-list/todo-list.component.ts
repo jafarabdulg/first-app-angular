@@ -20,7 +20,13 @@ export class TodoListComponent {
     id: new FormControl(Math.floor(Math.random() * (100 - 1) + 1).toString()),
     name: new FormControl(null, Validators.required),
     description: new FormControl()
-  })
+  });
+  // Form to update todo
+  updateToDoForm: FormGroup = new FormGroup({
+    id: new FormControl(),
+    name: new FormControl(null, Validators.required),
+    description: new FormControl()
+  });
 
   todos: ToDo[] = [];
   todoById: ToDo = {
@@ -39,12 +45,19 @@ export class TodoListComponent {
   }
   getToDoById(id: string): void{
     this.todoById = this.service.getToDoById(id);
+    this.updateToDoForm.setValue({
+      id: this.todoById.id,
+      name: this.todoById.name,
+      description: this.todoById.description
+    });
     this.showTodoById = true;
   }
-  updateToDo(updateToDo: ToDo): void{
-    this.service.updateToDo(updateToDo);
+  updateToDo(): void{
+    const updatedTodo = this.updateToDoForm.value;
+    this.service.updateToDo(updatedTodo);
     this.getAllToDo();
     this.cancelDetails();
+    // console.log(this.todos)
   }
   deleteToDo(id: string): void{
     const confirm: boolean = window.confirm('are you sure?');
@@ -68,6 +81,5 @@ export class TodoListComponent {
       alert('error!');
     }
   }
-
 
 }

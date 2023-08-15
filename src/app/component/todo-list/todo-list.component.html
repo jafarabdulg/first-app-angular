@@ -42,39 +42,41 @@
 
 <!--todo details-->
   <div class="details container w-50 card pt-5 pb-5" *ngIf="showTodoById">
-    <button type="button" (click)="cancelDetails()" class="btn-close"></button>
-    <div class="row mb-3">
-      <div class="col text-center">
-        <span>Todo Details</span>
+    <form [formGroup]="updateToDoForm" (ngSubmit)="updateToDo()">
+      <button type="button" (click)="cancelDetails()" class="btn-close"></button>
+      <div class="row mb-3">
+        <div class="col text-center">
+          <span>Todo Details</span>
+        </div>
       </div>
-    </div>
-    <div class="row mb-2">
-      <div class="col-3">
-        <p class="d-flex align-items-center h-100">Id</p>
+      <div class="row mb-2">
+        <div class="col-3">
+          <p class="d-flex align-items-center h-100">Id</p>
+        </div>
+        <div class="col-9">
+          <input type="text" class="form-control bg-secondary" formControlName="id" [value]="todoById.id" readonly>
+        </div>
       </div>
-      <div class="col-9">
-        <input type="text" class="form-control" [value]="todoById.id" disabled>
+      <div class="row mb-2">
+        <div class="col-3">
+          <p class="d-flex align-items-center h-100">Name</p>
+        </div>
+        <div class="col-9">
+          <input type="text" class="form-control" formControlName="name">
+        </div>
       </div>
-    </div>
-    <div class="row mb-2">
-      <div class="col-3">
-        <p class="d-flex align-items-center h-100">Name</p>
+      <div class="row mb-2">
+        <div class="col-3">
+          <p class="d-flex align-items-center h-100">Description</p>
+        </div>
+        <div class="col-9">
+          <input type="text" class="form-control" formControlName="description">
+        </div>
       </div>
-      <div class="col-9">
-        <input type="text" id="updatedName" class="form-control" (input)="onKeyPressUpdate($event)" [value]="todoById.name">
+      <div class="row">
+        <div class="col">
+          <button type="submit" class="btn btn-primary w-100">Update</button>
+        </div>
       </div>
-    </div>
-    <div class="row mb-2">
-      <div class="col-3">
-        <p class="d-flex align-items-center h-100">Description</p>
-      </div>
-      <div class="col-9">
-        <input type="text" id="updatedDesc" class="form-control" (input)="onKeyPressUpdate($event)" [value]="todoById.description">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <button (click)="updateToDo(todoById)" class="btn btn-primary w-100">Update</button>
-      </div>
-    </div>
+    </form>
   </div>

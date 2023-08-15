@@ -28,6 +28,8 @@ export class TodoService {
   }
   updateToDo(updateToDo: ToDo): void{
     const index: number = this.todos.findIndex(todo => todo.id === updateToDo.id);
+    // console.log(index);
+    // console.log(updateToDo.id)
     this.todos[index] = updateToDo;
   }
 
