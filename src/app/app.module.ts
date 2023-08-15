@@ -8,13 +8,17 @@ import {ExponentPipes} from "./shared/pipes/exponent.pipes";
 import { AgePipe } from './shared/pipes/age.pipe';
 import {TodoService} from "./service/todo.service";
 import { TodoListComponent } from './component/todo-list/todo-list.component';
+import { ComponentBComponent } from './component/component-b/component-b.component';
+import { NotFoundComponent } from './shared/component/not-found/not-found.component';
 
 @NgModule({
   declarations: [
       AppComponent,
       ExponentPipes,
       AgePipe,
-      TodoListComponent
+      TodoListComponent,
+      ComponentBComponent,
+      NotFoundComponent
   ],
   imports: [
     BrowserModule,
