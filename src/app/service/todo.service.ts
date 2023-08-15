@@ -13,15 +13,26 @@ export class TodoService {
       id: '001',
       name: 'Belajar',
       description: 'Belajar angular'
-    },
-    {
-      id: '002',
-      name: 'Berenang',
-      description: 'Berenang selama 1 jam'
     }
-  ]
+  ];
 
+  create(todo: ToDo): void{
+    this.todos.push(todo);
+  }
   getTodos(): ToDo[]{
     return this.todos;
+  }
+  getToDoById(id: string): ToDo{
+    const index: number = this.todos.findIndex(todo => todo.id === id);
+    return this.todos[index];
+  }
+  updateToDo(updateToDo: ToDo): void{
+    const index: number = this.todos.findIndex(todo => todo.id === updateToDo.id);
+    this.todos[index] = updateToDo;
+  }
+
+  deleteToDoById(id: string): void{
+    const index: number = this.todos.findIndex(todo => todo.id === id);
+    this.todos.splice(index, 1);
   }
 }

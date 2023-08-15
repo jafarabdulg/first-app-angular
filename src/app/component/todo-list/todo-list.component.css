@@ -1,0 +1,10 @@
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.details {
+  position: fixed;
+  z-index: 1;
+  top: 30%;
+  left: 25%;
+}

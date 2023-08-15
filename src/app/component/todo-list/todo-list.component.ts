@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {TodoService} from "../../service/todo.service";
 import {ToDo} from "../../model/todo";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-todo-list',
@@ -10,12 +11,63 @@ import {ToDo} from "../../model/todo";
 export class TodoListComponent {
   constructor(private readonly service: TodoService) {}
 
-  todos: ToDo[] = [];
-
   ngOnInit(){
-    this.getAllTodo();
-  }
-  getAllTodo(){
     this.todos = this.service.getTodos();
   }
+
+  // to-do list form
+  toDoForm: FormGroup = new FormGroup({
+    id: new FormControl(Math.floor(Math.random() * (100 - 1) + 1).toString()),
+    name: new FormControl(null, Validators.required),
+    description: new FormControl()
+  })
+
+  todos: ToDo[] = [];
+  todoById: ToDo = {
+    id: '',
+    name: '',
+    description: ''
+  }
+  showTodoById = false;
+  submitToDo(todo: ToDo): void{
+    this.service.create(todo);
+    this.getAllToDo();
+    this.toDoForm.reset();
+  }
+  getAllToDo(): void{
+    this.todos = this.service.getTodos();
+  }
+  getToDoById(id: string): void{
+    this.todoById = this.service.getToDoById(id);
+    this.showTodoById = true;
+  }
+  updateToDo(updateToDo: ToDo): void{
+    this.service.updateToDo(updateToDo);
+    this.getAllToDo();
+    this.cancelDetails();
+  }
+  deleteToDo(id: string): void{
+    const confirm: boolean = window.confirm('are you sure?');
+    if (confirm) {
+      this.service.deleteToDoById(id);
+      this.getAllToDo();
+    }
+  }
+
+  // Utils
+  cancelDetails(): void{
+    this.showTodoById = !this.showTodoById;
+  }
+
+  onKeyPressUpdate(event: any): void{
+    if (event.target.id === 'updatedName') {
+      this.todoById.name = event.target.value;
+    } else if (event.target.id === 'updatedDesc') {
+      this.todoById.description = event.target.value;
+    } else {
+      alert('error!');
+    }
+  }
+
+
 }

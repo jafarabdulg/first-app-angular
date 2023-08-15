@@ -1,18 +1,80 @@
-<table>
+<!--form-->
+<div class="container w-50">
+  <form [formGroup]="toDoForm" (ngSubmit)="submitToDo(toDoForm.value)">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input id="name" type="text" formControlName="name" class="form-control" placeholder="What do u wanna do?">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description" class="form-control" placeholder="You can describe more here"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="toDoForm.invalid">Save</button>
+  </form>
+</div>
+
+<!--todo list-->
+<div class="container mt-5">
+  <table class="table w-100 text-center">
     <thead>
     <tr>
-        <th>No</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Action</th>
+      <th>No</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Action</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let todo of todos; let i=index">
-        <td>{{i+1}}</td>
-        <td>{{todo.name}}</td>
-        <td>{{todo.description}}</td>
-        <td><button class="btn btn-danger">Delete</button></td>
+      <td>{{i+1}}</td>
+      <td>{{todo.name}}</td>
+      <td>{{todo.description}}</td>
+      <td>
+        <div class="btn-group btn-group-sm" role="group">
+          <button class="btn btn-success" (click)="getToDoById(todo.id)">Detail</button>
+          <button class="btn btn-danger" (click)="deleteToDo(todo.id)">Delete</button>
+        </div>
+      </td>
     </tr>
     </tbody>
-</table>
+  </table>
+</div>
+
+<!--todo details-->
+  <div class="details container w-50 card pt-5 pb-5" *ngIf="showTodoById">
+    <button type="button" (click)="cancelDetails()" class="btn-close"></button>
+    <div class="row mb-3">
+      <div class="col text-center">
+        <span>Todo Details</span>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-3">
+        <p class="d-flex align-items-center h-100">Id</p>
+      </div>
+      <div class="col-9">
+        <input type="text" class="form-control" [value]="todoById.id" disabled>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-3">
+        <p class="d-flex align-items-center h-100">Name</p>
+      </div>
+      <div class="col-9">
+        <input type="text" id="updatedName" class="form-control" (input)="onKeyPressUpdate($event)" [value]="todoById.name">
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-3">
+        <p class="d-flex align-items-center h-100">Description</p>
+      </div>
+      <div class="col-9">
+        <input type="text" id="updatedDesc" class="form-control" (input)="onKeyPressUpdate($event)" [value]="todoById.description">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button (click)="updateToDo(todoById)" class="btn btn-primary w-100">Update</button>
+      </div>
+    </div>
+  </div>
